@@ -30,22 +30,22 @@ export default function AgentDetail() {
     }, []);
     return (
         <>
-        <a
-            className="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow-md md:flex-row md:max-w-xl hover:bg-gray-100 transition-colors duration-300 ease-in-out dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700"
-        >
-            <img
-                className="object-cover w-full rounded-t-lg h-48 md:h-auto md:w-48 md:rounded-none md:rounded-l-lg"
-                src={agent.imgUrl}
-                alt="Agent Portrait"
-            />
-            <div className="flex flex-col justify-between p-4">
-                <p className="mb-4 font-semibold tracking-tight text-gray-900 dark:text-white">
-                    {JSON.stringify(agent.abilities)}
-                </p>
+         <a
+        className="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow-md md:flex-row md:max-w-xl hover:bg-gray-100 transition-colors duration-300 ease-in-out dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700"
+    >
+        <img
+            className="object-contain w-full h-48 md:h-auto md:w-48 md:rounded-none md:rounded-l-lg"
+            src={agent.imgUrl}
+            alt="Agent Portrait"
+        />
+        <div className="flex flex-col justify-between p-4">
+            <div className="mb-4 font-semibold tracking-tight text-gray-900 dark:text-white overflow-hidden">
+                <pre className="whitespace-pre-wrap">{JSON.stringify(agent.abilities, null, 2)}</pre>
             </div>
-        </a>
-    </>
-    
-    
+        </div>
+    </a>
+        </>
+
+
     );
 }

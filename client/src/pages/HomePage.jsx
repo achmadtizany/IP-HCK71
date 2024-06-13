@@ -16,8 +16,8 @@ export default function HomePage() {
             const { data } = await localRequest.get(`/agents?page[number]=${currentPage}&search=${search}&filter=${filter}`, {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem("token")}`
-                    }
                 }
+            }
             );
             setAgent(data);
             console.log(data);
@@ -28,7 +28,7 @@ export default function HomePage() {
 
     useEffect(() => {
         fetchData();
-    }, [currentPage, search,filter]);
+    }, [currentPage, search, filter]);
 
     const handlePrevPage = () => {
         setCurrentPage((prevPage) => prevPage - 1);
@@ -44,7 +44,7 @@ export default function HomePage() {
     };
 
     const handleFilter = (value) => {
-      setFilter(value)
+        setFilter(value)
     }
 
     return (
@@ -56,9 +56,12 @@ export default function HomePage() {
                         style={{ backgroundColor: "white" }}
                     >
                         <div className="flex justify-between items-center mb-10">
-                            <h2 className="dark:text-black text-3xl font-semibold mb-4 text-center underline decoration-purple-300">
-                                Read Carefully Please
+                            <h2 className="dark:text-black text-3xl font-semibold mb-4 text-center decoration-none">
+                                <span className="bg-gray-200 text-gray-800 px-2 py-1 rounded">Read Carefully Please...</span>
                             </h2>
+
+
+
                             <SearchBar onSearch={handleSearch} />
                             {/* <Filter handleFilter={handleFilter}/> */}
                         </div>
