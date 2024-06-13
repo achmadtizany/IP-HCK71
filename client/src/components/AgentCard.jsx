@@ -26,5 +26,6 @@ export default function AgentCard({ item }) {
         </div>
       </div>
     </>
+  
   );
 }

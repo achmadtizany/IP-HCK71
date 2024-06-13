@@ -21,7 +21,7 @@ export default function AgentAi() {
                         Authorization: `Bearer ${localStorage.getItem("token")}`
                     }
                 },
-                
+
             )
             setResult(data)
             navigate('/helpMe')
@@ -32,40 +32,42 @@ export default function AgentAi() {
 
     return (
         <>
-        <>
-    <div className="max-w-md mx-auto p-4 bg-gray-100 border rounded-lg">
-        <h2 className="text-center text-lg font-bold mb-4">Ask The Agent?</h2>
-        <form onSubmit={handleAgentAi}>
-            <h6 className="text-red-500 text-sm text-center"></h6>
-            <label htmlFor="agentName" className="block mb-1">The First Agent</label>
-            <input
-                type="text"
-                name="agentName"
-                id="agentName"
-                value={agent1}
-                onChange={(event) => setAgent1(event.target.value)}
-                className="w-full px-3 py-2 mb-4 border rounded-lg"
-            />
-            <label htmlFor="agentName" className="block mb-1">The Second Agent</label>
-            <input
-                type="text"
-                name="agentName"
-                id="agentName"
-                value={agent2}
-                onChange={(event) => setAgent2(event.target.value)}
-                className="w-full px-3 py-2 mb-4 border rounded-lg"
-            />
-            <button type="submit" className="w-full py-2 bg-blue-500 text-white rounded-lg">Compare</button>
-        </form>
-        {result && (
-            <div className="mt-4 p-4 border rounded-lg bg-white">
-                <h3 className="text-lg font-bold">Fact Result:</h3>
-                <p>{JSON.stringify(result)}</p>
+            <div className="max-w-md mx-auto p-4 bg-gray-100 border rounded-lg">
+                <h2 className="text-center text-lg font-bold mb-4">Ask The Agent?</h2>
+                <form onSubmit={handleAgentAi}>
+                    <h6 className="text-red-500 text-sm text-center"></h6>
+                    <label htmlFor="agent1" className="block mb-1">The First Agent</label>
+                    <input
+                        type="text"
+                        name="agent1"
+                        id="agent1"
+                        value={agent1}
+                        onChange={(event) => setAgent1(event.target.value)}
+                        className="w-full px-3 py-2 mb-4 border rounded-lg"
+                    />
+                    <label htmlFor="agent2" className="block mb-1">The Second Agent</label>
+                    <input
+                        type="text"
+                        name="agent2"
+                        id="agent2"
+                        value={agent2}
+                        onChange={(event) => setAgent2(event.target.value)}
+                        className="w-full px-3 py-2 mb-4 border rounded-lg"
+                    />
+                    <button type="submit" className="w-full py-2 bg-gradient-to-r from-white to-gray-800 text-black border border-gray-800 rounded-lg hover:from-gray-200 hover:to-gray-700 hover:border-gray-700">Compare</button>
+                </form>
+                {result && (
+                    <div className="mt-4 border rounded-lg bg-white">
+                        <div className="p-4">
+                            <h3 className="text-lg font-bold mb-2">Fact Result:</h3>
+                            <div className="overflow-x-auto">
+                                <pre className="whitespace-pre-wrap">{JSON.stringify(result, null, 2)}</pre>
+                            </div>
+                        </div>
+                    </div>
+                )}
             </div>
-        )}
-    </div>
-</>
-
         </>
+
     )
 }

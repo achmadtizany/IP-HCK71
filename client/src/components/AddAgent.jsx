@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { localRequest } from "../../utils/axios";
 import { useNavigate, useParams } from "react-router-dom";
-// import ToastError from "../../utils/toast"
+import ToastError from "../../utils/toast"
 
 export default function AddAgent() {
   const [agents, setAgent] = useState({
@@ -49,8 +49,8 @@ export default function AddAgent() {
       // setAgent(data)
 
     } catch (error) {
-    //   ToastError(error.response?.data?.message || error.message, "error");
-      console.log(error.response);
+      ToastError(error.response?.data?.message || error.message, "error");
+      // console.log(error.response);
     }
   };
 
@@ -72,9 +72,10 @@ export default function AddAgent() {
       })
       // console.log(data);
       navigate("/table")
+
     } catch (error) {
-        console.log(error);
-      // ToastError(error.response?.data?.message || error.message, "error");
+        // console.log(error);
+      ToastError(error.response?.data?.message || error.message, "error");
     }
   }
 
