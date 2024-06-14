@@ -12,9 +12,11 @@ module.exports = async function openAI (agent1, agent2){
             content: `Give me a interesting fact  from agent valorant from ${agent1} vs ${agent2}. the response must be a JSON, the format is like this:
             {
                 "agent1":
+               
             },
             {
                 "agent2":
+                
             }
             `,
           },
